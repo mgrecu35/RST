@@ -1,0 +1,38 @@
+data_files_path /home/grecu/libRadtran-2.0.2/data/
+#atmosphere_file us_standard
+atmosphere_file ../examples/MLS70.UVSPEC_short
+
+
+source thermal
+
+rte_solver       disort
+#number_of_streams 32
+#rte_solver rodents
+
+
+mol_tau_file abs ../RSTScripts/molecular_tau_zero 
+no_scattering aer
+no_scattering mol
+disort_intcor moments
+
+deltam off
+wavelength 100836.500  #wavelength
+
+zout toa
+zout_interpolate
+
+umu               0.60181
+sza               33.1931
+
+
+# Cloud properties
+
+
+# Surface
+albedo            0.027000
+ic_file moments moment_files
+
+# Output specification
+#output_user       wavelength uu
+output_quantity   brightness
+verbose
